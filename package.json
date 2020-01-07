@@ -1,0 +1,36 @@
+{
+    "name": "msoffice",
+    "version": "0.0.0",
+    "description": "Create and parse Microsoft Office presentations, documents and spreadsheets.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zakhar-bykov/node-msoffice.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
+    },
+    "keywords": [
+    "ms",
+    "mso",
+    "microsoft",
+    "office",
+    "pptx",
+    "ppt",
+    "docx",
+    "doc",
+    "xlsx",
+    "xls",
+    "node",
+    "parser"
+  ],
+    "author": "Zakhar Bykov",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/zakhar-bykov/node-msoffice/issues"
+    },
+    "homepage": "https://github.com/zakhar-bykov/node-msoffice#readme"
+}
