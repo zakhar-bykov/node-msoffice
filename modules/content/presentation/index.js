@@ -1,39 +1,24 @@
-const PresentationParser = require('./../../cake-parser/presentation-parser');
+const Presentation = require('./../../class/presentation/presentation');
 
-
-class Presentation {
-    constructor(file) {
-        this.parser = new PresentationParser();
-        this.json = '';
+class ContentPresentation extends Presentation {
+    constructor(content) {
+        super();
+        this.content = content;
     }
 
 
-    init() {
-        this.parser.parse(this.file.path, (err, json) => {
-            if (err) throw err;
+    getSlides(callback) {
+        if (this.content.type === 'buffer') {
+            this.parser.parseText(this.content.buffer, (err, json) => {
+                super.getSlides(err, json, callback);
+            });
+        } else if (this.content.type === 'json') {
+            var json = this.content.json;
 
-            this.json = json;
-        });
-    }
-
-    getSlides() {
-        var slides = [];
-
-        // var jsonString = JSON.stringify(this.json, null, 2);
-        // var numOfSlides = jsonString.match(/\"ppt\/slides\/slide/g).length;
-
-        // for (let slideId = 0; slideId < numOfSlides; slideId++) {
-        // slides.push(new Slide(slideId, this.json));
-        // }
-
-        return this.json;
-    }
-
-    getJSON() {
-        console.log(5);
-        return JSON.stringify(this.json);
+            super.getSlides(null, json, callback);
+        }
     }
 }
 
 
-module.exports = Presentation;
+module.exports = ContentPresentation;
