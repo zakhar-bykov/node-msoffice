@@ -1,5 +1,1 @@
-class Presentation {
-
-}
-
-module.exports = Presentation;
+module.exports = require('./pptx-compose');
