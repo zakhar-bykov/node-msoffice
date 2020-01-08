@@ -1,4 +1,4 @@
-const PresentationParser = require('./../presentation-parser');
+const PresentationParser = require('./../../cake-parser/presentation-parser');
 
 
 class Presentation {
