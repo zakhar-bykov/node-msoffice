@@ -4,10 +4,7 @@ const PresentationParser = require('./../../cake-parser/presentation-parser');
 class Presentation {
     constructor(file) {
         this.parser = new PresentationParser();
-        this.file = file;
         this.json = '';
-
-        this.init();
     }
 
 
@@ -16,7 +13,6 @@ class Presentation {
             if (err) throw err;
 
             this.json = json;
-            console.log(1);
         });
     }
 

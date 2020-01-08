@@ -19,14 +19,14 @@ class MicrosoftOffice {
         file.path = file.dir + '/' + file.base;
 
         if (fs.existsSync(file.path)) {
-            if (file.ext.toLowerCase() === '.doc' || file.ext.toLowerCase() === '.docx') {
+            if (/* file.ext.toLowerCase() === '.doc' || */ file.ext.toLowerCase() === '.docx') { // May be not true
                 callback(null, new local.Document(file));
-            } else if (file.ext.toLowerCase() === '.ppt' || file.ext.toLowerCase() === '.pptx') {
+            } else if (/* file.ext.toLowerCase() === '.ppt' || */ file.ext.toLowerCase() === '.pptx') { // May be not true
                 callback(null, new local.Presentation(file));
-            } else if (file.ext.toLowerCase() === '.xls' || file.ext.toLowerCase() === '.xlsx') {
+            } else if (/* file.ext.toLowerCase() === '.xls' || */ file.ext.toLowerCase() === '.xlsx') { // May be not true
                 callback(null, new local.Spreadsheet(file));
             } else {
-                callback(new Error("Unknown extension: '" + file.ext + "'. Supported extensions: ppt, pptx, doc, docx [, xls, xlsx not yet]"));
+                callback(new Error("Unknown extension: '" + file.ext + "'. Supported extensions: pptx, docx [, xlsx not yet]"));
             }
         } else if (fs.existsSync(file.dir)) {
             callback(new Error("File '" + file.base + "' does not exists"));
