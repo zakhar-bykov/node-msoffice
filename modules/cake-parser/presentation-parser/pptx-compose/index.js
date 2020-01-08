@@ -91,12 +91,10 @@ Parser.prototype.parseText = function parseText(buffer, callback) {
     assert.equal(typeof buffer, 'object', "argument 'buffer' must be a object");
     assert.equal(typeof callback, 'function', "argument 'callback' must be a function");
 
-    var data = Buffer.from(buffer);
-
     var content = {};
 
     JSZip()
-        .loadAsync(data)
+        .loadAsync(buffer)
         .then(function(zip) {
             async.each(Object.keys(zip.files), function(key, cb) {
                 var ext = key.substr(key.lastIndexOf('.'));
